@@ -1,9 +1,10 @@
+// dev.module.ts
 import { Module } from '@nestjs/common';
-import { DevService } from './dev.service';
-import { DevController } from './dev.controller';
-
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { Dev } from './dev.entity';
+import { DevRepository } from './dev.repo';
 @Module({
-  controllers: [DevController],
-  providers: [DevService],
+  imports: [TypeOrmModule.forFeature([Dev, DevRepository])],
+  exports: [TypeOrmModule],
 })
 export class DevModule {}
