@@ -15,7 +15,7 @@ export class DevService {
     private devRepository: Repository<Dev>,
   ) {}
 
-  //FecthCar
+  //GetDevs
   public async getDev(): Promise<{
     status: number;
     message: string;
@@ -47,7 +47,7 @@ export class DevService {
     try {
       // Check if the ID is provided
       if (devData.hasOwnProperty('id') && devData.id !== undefined) {
-        // Check if a car with the same ID already exists
+        // Check if a dev with the same ID already exists
         const existingDev = await this.devRepository.findOne({
           where: { id: devData.id },
         });
@@ -74,6 +74,7 @@ export class DevService {
         'tierlevel',
         'image',
       ];
+      // throw error if a required field is missing
       for (const field of requiredFields) {
         if (!(field in devData) || !devData[field]) {
           throw new HttpException(
@@ -107,7 +108,7 @@ export class DevService {
     try {
       const dev = await this.devRepository.findOne({ where: { id } });
       if (!dev) {
-        throw new NotFoundException(`Car with ID ${id} not found`);
+        throw new NotFoundException(`Dev with ID ${id} not found`);
       }
       return { status: HttpStatus.OK, message: 'success', dev };
     } catch (error) {
@@ -158,10 +159,10 @@ export class DevService {
       }
 
       // Merge provided data with existing dev properties
-      const updatedCarData: Partial<Dev> = { ...dev, ...devData };
+      const updatedDevData: Partial<Dev> = { ...dev, ...devData };
 
-      // Save the updated car entity
-      const updatedDev = await this.devRepository.save(updatedCarData);
+      // Save the updated dev entity
+      const updatedDev = await this.devRepository.save(updatedDevData);
 
       return {
         status: HttpStatus.OK,

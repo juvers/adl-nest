@@ -1,6 +1,10 @@
 import { NestFactory } from '@nestjs/core';
 import { NestExpressApplication } from '@nestjs/platform-express';
-import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
+import {
+  SwaggerModule,
+  DocumentBuilder,
+  SwaggerDocumentOptions,
+} from '@nestjs/swagger';
 
 import { AppModule } from './app.module';
 
@@ -14,13 +18,17 @@ async function bootstrap() {
     credentials: true,
   });
 
+  const options: SwaggerDocumentOptions = {
+    operationIdFactory: (controllerKey: string, methodKey: string) => methodKey,
+  };
+
   const config = new DocumentBuilder()
     .setTitle('Devs in  ADL')
-    .setDescription('The ADL Devs API description')
+    .setDescription('ADL Rockstars')
     .setVersion('1.0')
     .addTag('devs')
     .build();
-  const document = SwaggerModule.createDocument(app, config);
+  const document = SwaggerModule.createDocument(app, config, options);
   SwaggerModule.setup('adl', app, document);
 
   await app.listen(3000);

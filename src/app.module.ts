@@ -1,9 +1,9 @@
 import { Module, NestModule, MiddlewareConsumer } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
+import { TypeOrmModule } from '@nestjs/typeorm';
 
 import { DevModule } from './dev/dev.module';
 import { DevService } from './dev/dev.service';
-import { TypeOrmModule } from '@nestjs/typeorm';
 import { Dev } from './dev/dev.entity';
 import { DevRepository } from './dev/dev.repo';
 import { DevController } from './dev/dev.controller';

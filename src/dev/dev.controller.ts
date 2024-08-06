@@ -11,7 +11,7 @@ import { DevService } from './dev.service';
 import { DevDto } from './dev.dto';
 import { Dev } from './dev.entity';
 
-@Controller('dev')
+@Controller('api')
 export class DevController {
   constructor(private readonly devService: DevService) {}
 
