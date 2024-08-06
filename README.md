@@ -16,19 +16,19 @@
 
 
 ### Create Table
-CREATE TABLE devs (
-    id SERIAL PRIMARY KEY,
-    firstname VARCHAR(255),
-    lastname VARCHAR(255),
-    squad VARCHAR(255),
-    yearofservice INTEGER,
-    role VARCHAR(255),
-    experience INTEGER,
-    salary NUMERIC,
-    preferredlanguage VARCHAR(255),
-    stacklayer VARCHAR(255),
-    tierlevel INTEGER,
-    coreskills TEXT[],
-    image VARCHAR(255)
-);
+> CREATE TABLE devs (
+>    id SERIAL PRIMARY KEY,
+>    firstname VARCHAR(255),
+>    lastname VARCHAR(255),
+>    squad VARCHAR(255),
+>    yearofservice INTEGER,
+>    role VARCHAR(255),
+>    experience INTEGER,
+>    salary NUMERIC,
+>    preferredlanguage VARCHAR(255),
+>    stacklayer VARCHAR(255),
+>    tierlevel INTEGER,
+>    coreskills TEXT[],
+>    image VARCHAR(255)
+>);
 
