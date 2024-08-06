@@ -68,12 +68,15 @@ export class DevService {
         'role',
         'experience',
         'salary',
-        'preferredlanguage',
+      ];
+
+      /** Non mandatory fields
+       * 'preferredlanguage',
         'stacklayer',
         'coreskills',
         'tierlevel',
         'image',
-      ];
+       */
       // throw error if a required field is missing
       for (const field of requiredFields) {
         if (!(field in devData) || !devData[field]) {

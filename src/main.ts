@@ -26,7 +26,7 @@ async function bootstrap() {
     .setTitle('Devs in  ADL')
     .setDescription('ADL Rockstars')
     .setVersion('1.0')
-    .addTag('devs')
+    .addTag('2024 Dev List')
     .build();
   const document = SwaggerModule.createDocument(app, config, options);
   SwaggerModule.setup('adl', app, document);
